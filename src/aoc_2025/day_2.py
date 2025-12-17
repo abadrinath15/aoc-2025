@@ -1,11 +1,12 @@
 import os
 import re
+import helper
 
 PART_2_PATTERN = re.compile(r'(.+)\1+$')
 
 def gift_shop(filename: str) -> int:
     invalid_sum = 0
-    with open(os.path.expanduser(f'~/Programming/python/aoc-2025/inputs/{filename}.txt')) as file:
+    with helper.file_opener(filename) as file:
         for prod_id in file.readline().strip().split(','):
             if not prod_id:
                 return invalid_sum
